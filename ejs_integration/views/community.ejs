@@ -1,0 +1,353 @@
+<%- include("layouts/header") -%>
+
+<body>
+  <div
+    id="main-wrapper"
+    data-theme="light"
+    data-layout="vertical"
+    data-navbarbg="skin6"
+    data-sidebartype="full"
+    data-sidebar-position="fixed"
+    data-header-position="fixed"
+    data-boxed-layout="full"
+  >
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <%- include("components/topbar") -%>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <%- include("components/sidebar") -%>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+      <!-- ============================================================== -->
+      <!-- Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <div class="page-breadcrumb">
+        <div class="row">
+          <div class="col-7 align-self-center">
+            <h4
+              class="page-title text-truncate text-dark font-weight-medium mb-1"
+            >
+              Community Feed
+            </h4>
+
+            <div class="d-flex align-items-center">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0 p-0">
+                  <li
+                    class="breadcrumb-item text-muted active"
+                    aria-current="page"
+                  >
+                    Bring your ideas together
+                  </li>
+
+                  <li></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Container fluid  -->
+      <!-- ============================================================== -->
+      <div class="container-fluid">
+        <!--Add New Post-->
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <% if(user) { %>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!-- <% if(user) { %>
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="javascript:void(0)"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="<%= user.photo %>"
+                    alt="user"
+                    class="rounded-circle"
+                    width="40"
+                  />
+                  <span class="ml-2 d-none d-lg-inline-block">
+                    <span class="text-dark"><%= user.name %></span>
+                    <i data-feather="chevron-down" class="svg-icon"></i
+                  ></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right user-dd animated flipInY"
+                >
+                  <a class="dropdown-item" href="/profile"
+                    ><i data-feather="user" class="svg-icon mr-2 ml-1"></i> My
+                    Profile</a
+                  >
+                  <div class="dropdown-divider"></div>
+      
+                  <a class="dropdown-item" href="/auth/logout"
+                    ><i data-feather="power" class="svg-icon mr-2 ml-1"></i> Logout</a
+                  >
+                </div>
+                <% }else{ %>
+                 <a href="/auth"><button class="btn btn-primary">Login</button></a>
+                  <% } %>
+              </li> -->
+              <div class="modal-body">
+                <div>
+                  <span>
+                    <img
+                      class="rounded-circle"
+                      width="45"
+                      src="<%= user.photo %>"
+                      alt=""
+                    />
+                  </span>
+                  <span class="h5 m-2 font-weight-bold"><%= user.name %></span>
+                </div>
+
+                <form
+                  action="/community/createpost/<%= user.id %>"
+                  method="post"
+                >
+                  <textarea
+                    name="text"
+                    id="post_content"
+                    class="pt-2"
+                    onchange="save()"
+                    style="resize: none; border: none; width: 100%"
+                    placeholder="What's on your mind?"
+                  ></textarea>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width: 100%; border-radius: 5px"
+                  >
+                    Post
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <% if(user) { %>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img
+                    class="rounded-circle"
+                    width="45"
+                    src="<%= user.photo %>"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="ml-1 posting">
+                <button
+                  type="button"
+                  class="post-input"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  What's on your mind?
+                </button>
+              </div>
+              <% }else{ %>
+              <div class="ml-1 posting">
+                <a href="/auth"
+                  ><button type="button" class="post-input">
+                    What's on your mind?
+                  </button></a
+                >
+              </div>
+
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post -->
+
+        <% posts.forEach(post=>{ %> <% if(typeof post.user[0] == 'undefined'){
+        %> <% } else{ %>
+        <div class="card gedf-card">
+          <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                  <img
+                    class="rounded-circle"
+                    width="45"
+                    src="<%= post.user[0].photo %>"
+                    alt=""
+                  />
+                </div>
+                <div class="ml-2">
+                  <div class="h5 m-0 font-weight-bold">
+                    <%= post.user[0].name %>
+                  </div>
+                  <span class="text-muted"><%= post.date %> </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="text-dark"><%= post.text %></h3>
+          </div>
+          <div class="card-footer">
+            <div>
+              <% if(user) { %>
+              <a href="/community/post/<%= post._id %>/<%= user._id %>"
+                ><i
+                  class="fas fa-heart text-danger px-1"
+                ></i
+                ><%= post.likes %></a
+              >
+              <% }else{ %>
+              <a href="/auth"
+                ><i
+                  class="fas fa-heart text-danger px-1"
+                ></i
+                ><%= post.likes %></a
+              >
+              <% } %>
+            </div>
+          </div>
+
+          <div class="form-group shadow-textarea comment-area">
+            <% if(user) { %>
+            <form
+              action="/post/create/<%= post.id %>/<%= user.id %>/"
+              method="post"
+            >
+              <textarea
+                name="comment"
+                id="textarea1"
+                class="form-control z-depth-1"
+                style="
+                  border-style: none;
+                  border-color: Transparent;
+                  overflow: auto;
+                  resize: none;
+                  background-color: rgba(245, 250, 254, 0.03);
+                "
+                id="exampleFormControlTextarea6"
+                rows="1"
+                placeholder="Write your comment here"
+              ></textarea>
+
+              <button type="submit" class="post-button mr-5">Post</button>
+            </form>
+            <% }else{ %>
+            <div>
+              <a href="/auth"
+                ><button class="btn btn-primary">Login to comment</button></a
+              >
+            </div>
+            <% } %>
+
+            <br /><br />
+
+            <div class="row mt-0" style="margin: 10px">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="row no-gutters">
+                    <div class="chat-box position-relative">
+                      <ul class="chat-list list-style-none px-3 pt-3">
+                        <!-- Comment Row -->
+                        <% post.comments.forEach(comment=>{ %>
+                        <li class="commented-section mt-2 p-3">
+                          <div
+                            class="d-flex flex-row align-items-center commented-user"
+                          >
+                            <div class="chat-img d-inline-block p-3">
+                              <img
+                                src="<%= comment.userdp %>"
+                                alt="user"
+                                class="rounded-circle"
+                                width="45"
+                              />
+                            </div>
+                            <div class="comment-name mr-2 mt-2">
+                              <%= comment.username %>
+                            </div>
+                          </div>
+                          <div class="comment-text-sm ml-4">
+                            <%= comment.text %>
+                          </div>
+                          <div class="flex-row px-4 pt-2">
+                            
+                            <!-- <button class="ml-auto mt-1 reply">Reply</button> -->
+                          </div>
+                        </li>
+                        <% }) %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Comment Section -->
+        </div>
+        <% } %> <% }) %>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center"></footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+  </div>
+  <script>
+    // function myFunction(x) {
+    //   x.classList.toggle("fa-thumbs-down");
+    // }
+  </script>
+  <%- include("layouts/footer") -%>
+</body>

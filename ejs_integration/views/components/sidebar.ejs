@@ -1,0 +1,120 @@
+<aside class="left-sidebar" data-sidebarbg="skin6">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+      <ul id="sidebarnav">
+<% if(user){%>
+<% if(user.isAdmin){ %>
+        <li class="sidebar-item">
+          <a class="sidebar-link sidebar-link" href="https://www.blogger.com/blog/posts/5466843617197818617" aria-expanded="false"
+            ><i class="far fa-plus-square"></i
+            ><span class="hide-menu">Create Post</span></a
+          >
+        </li>
+<% } %>
+<% } %>
+
+
+
+        <li class="sidebar-item">
+          <a class="sidebar-link sidebar-link" href="https://projectnewsfeed.blogspot.com/" aria-expanded="false"
+            ><i class="fas fa-newspaper"></i
+            ><span class="hide-menu">News Feed</span></a
+          >
+        </li>
+
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link sidebar-link"
+            href="/community"
+            aria-expanded="false"
+            ><i class="fas fa-sticky-note"></i
+            ><span class="hide-menu">Community Feed</span></a
+          >
+        </li>
+
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link has-arrow"
+            href="javascript:void(0)"
+            aria-expanded="false"
+            ><i class="fas fa-wrench"></i
+            ><span class="hide-menu">Tools </span></a
+          >
+          <ul
+            aria-expanded="false"
+            class="collapse first-level base-level-line"
+          >
+            <li class="sidebar-item">
+              <a href="/fd" class="sidebar-link"
+                ><span class="hide-menu"> FD Calculator </span></a
+              >
+            </li>
+            <li class="sidebar-item">
+              <a href="/sip" class="sidebar-link"
+                ><span class="hide-menu"> SIP Calculator </span></a
+              >
+            </li>
+            <li class="sidebar-item">
+              <a href="/dream" class="sidebar-link"
+                ><span class="hide-menu"> Dream Come True Calculator </span></a
+              >
+            </li>
+            <li class="sidebar-item">
+              <a href="/loan" class="sidebar-link"
+                ><span class="hide-menu"> Loan EMI Calculator </span></a
+              >
+            </li>
+
+            <li class="sidebar-item">
+              <a href="/volatility" class="sidebar-link"
+                ><span class="hide-menu">
+                  Risk to Volatility Calculator
+                </span></a
+              >
+            </li>
+
+            <li class="sidebar-item">
+              <a href="/expenses" class="sidebar-link"
+                ><span class="hide-menu"> Expenses Calculator </span></a
+              >
+            </li>
+
+
+            <li class="sidebar-item">
+              <a href="/budget" class="sidebar-link"
+                ><span class="hide-menu">
+                  Budgeting/ Saving Calculator
+                </span></a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link sidebar-link"
+            href="/stocks"
+            aria-expanded="false"
+            ><i class="fas fa-laptop"></i
+            ><span class="hide-menu">Screens</span></a
+          >
+        </li>
+
+        <li class="sidebar-item">
+          <a
+            class="sidebar-link sidebar-link"
+            href="/auth/logout"
+            onclick="signOut()"
+            aria-expanded="false"
+            ><i data-feather="log-out" class="feather-icon"></i
+            ><span class="hide-menu">Logout</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>

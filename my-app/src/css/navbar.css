@@ -1,0 +1,20 @@
+#navbar{
+  font-family: 'Fira Sans',Arial,sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  padding-bottom: 2%;
+}
+.navbar-brand{
+    margin-left: 10%;
+    
+}
+.nav-item a{
+    margin-left:3%;
+    color: black !important;
+}
+.searchBar{
+    margin-right: 10%;
+}
+.dropdown-toggle::after {
+    display: none;
+}
