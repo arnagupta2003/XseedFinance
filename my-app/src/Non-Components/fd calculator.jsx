@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/sipCalculator.css";
-import InputRangeLeft, { InputRangeRight } from "../Components/rangeInput";
+import InputRangeLeft, { InputRangeRight } from "../Components/formInput";
 import NavBar from "../Components/navbar";
 import DoughnutChart from "../Components/doughnut";
 import Footer from "../Components/footer";

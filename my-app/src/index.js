@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import NavBar from './Components/navbar';
 import SipCal from './Non-Components/sip calculator';
 import FDCal from './Non-Components/fd calculator';
+import DreamCal from './Non-Components/dream cal';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -10,7 +11,8 @@ root.render(
   <div>
     {/* <NavBar /> */}
     {/* <SipCal /> */}
-    <FDCal />
+    {/* <FDCal /> */}
+    <DreamCal />
   </div>
 );
 
