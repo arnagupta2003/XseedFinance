@@ -3,7 +3,7 @@ import React from "react";
 export default function FDInfo() {
   return (
     <div class="Info">
-      <h5>What is Fixed Deposit?</h5>
+      <h5 class="infoHead">What is Fixed Deposit?</h5>
       A fixed deposit is a type of term investment offered by several banks and
       NBFCs. These deposits typically offer a higher rate of interest, subject
       to certain terms and conditions. The amount you deposit in these deposits
@@ -14,7 +14,7 @@ export default function FDInfo() {
       available on the Xseed Finance Website.
       <br />
       <br />
-      <h5>How does FD Calculator work? </h5>
+      <h5 class="infoHead">How does FD Calculator work? </h5>
       There are two types of FD that you may avail of &#8209; simple interest FD
       and compound interest FD. Xseed Finance has calculators for both types of
       FD.

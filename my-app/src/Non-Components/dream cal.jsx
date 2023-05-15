@@ -81,8 +81,8 @@ export default function DreamCal() {
 
       <div class="sipContainer">
         <div class="heading">
-          <h4>Dream Come True Calculator</h4>
-          <h6>How long do I have to save to afford my dreams?</h6>
+          <h4 class="calHeading">Dream Come True Calculator</h4>
+          <h6 class="calTagline">How long do I have to save to afford my dreams?</h6>
         </div>
         <div class="row stats">
           <div class="col-sm-12 col-md-5 align-self-center">

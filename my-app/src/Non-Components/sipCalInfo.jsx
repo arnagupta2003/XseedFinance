@@ -4,7 +4,7 @@ import '../css/sipCalculator.css'
 export default function SipInfo(){
     return (
         <div class="Info">
-        <h5>What is SIP Calculator?</h5> 
+        <h5 class="infoHead">What is SIP Calculator?</h5> 
         SIP calculator is a simulation, which allows you
         to estimate the return on mutual fund investments made through SIP.
         Investing through SIPs in mutual funds is a popular investment option
@@ -15,7 +15,7 @@ export default function SipInfo(){
         expense ratio (if any). It is an online tool to calculate the SIP amount
         to achieve your financial goals, based on an expected annual return. 
         <br /><br />
-        <h5>How does SIP Calculator work? </h5>
+        <h5 class="infoHead">How does SIP Calculator work? </h5>
         A SIP plan calculator works by the values
         entered by the users. You must enter the amount of investment, frequency
         of investment, duration of investment, and the expected returns. The SIP

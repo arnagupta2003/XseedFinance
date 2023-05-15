@@ -108,6 +108,25 @@ input[type=tel]{
 .Info{
   margin: 5% 10%;
 }
+.infoHead{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.infoSubHead{
+  font-size: 1.2rem;
+}
+.calHeading{
+  font-weight: 600;
+  font-size: 2rem;
+}
+.calTagline{
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+.tableData{
+  font-weight: 500;
+  font-size: 1.2rem;
+}
 .dreambtn{
   background-color: #91BCE5;
   border: 2px solid #252525;

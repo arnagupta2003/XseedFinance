@@ -4,15 +4,16 @@ import NavBar from './Components/navbar';
 import SipCal from './Non-Components/sip calculator';
 import FDCal from './Non-Components/fd calculator';
 import DreamCal from './Non-Components/dream cal';
+import LearningSection from './Non-Components/learning section';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div>
-    {/* <NavBar /> */}
     {/* <SipCal /> */}
     {/* <FDCal /> */}
     <DreamCal />
+    <LearningSection />
   </div>
 );
 

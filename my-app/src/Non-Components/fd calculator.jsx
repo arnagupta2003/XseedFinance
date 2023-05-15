@@ -69,8 +69,8 @@ export default function FDCal() {
 
       <div class="sipContainer">
         <div class="heading">
-          <h4>Fixed Deposit Calculator</h4>
-          <h6>Find your maturity amount easily !!</h6>
+          <h4 class="calHeading">Fixed Deposit Calculator</h4>
+          <h6 class="calTagline">Find your maturity amount easily !!</h6>
         </div>
         <div class="row stats">
           <div class="col-sm-12 col-md-5 align-self-center">
