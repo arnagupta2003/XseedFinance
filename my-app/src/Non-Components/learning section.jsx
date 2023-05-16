@@ -15,7 +15,7 @@ export default function LearningSection() {
           <div class="col-sm-12 col-md-6">
             <h2 class="learningHeading">
               Let's become financially literate with XSeed Finance
-            </h2>{" "}
+            </h2>
             <br />
             <h4 class="learningTagline">
               Xseed Finance is an extensive and in-depth collection of stock
@@ -48,10 +48,11 @@ export default function LearningSection() {
               subtitle={mod.subtitle}
               text={mod.text}
               link1={mod.link1}
+              linkto={mod.linkto}
             />
           ))}
         </div>
-        </div>
+      </div>
       <br />
       <br />
       <br />
