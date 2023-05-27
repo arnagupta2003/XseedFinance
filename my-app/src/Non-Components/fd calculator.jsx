@@ -14,10 +14,10 @@ export default function FDCal() {
     interestRate: 1,
     timePeriod: 1,
   });
-//   const rate = stats.interestRate / 100;
-//   const totalInvestment = stats.totalInvestment * stats.timePeriod * 12;
-  var returnAmt = stats.totalInvestment*stats.interestRate*stats.timePeriod/100;
-
+  //   const rate = stats.interestRate / 100;
+  //   const totalInvestment = stats.totalInvestment * stats.timePeriod * 12;
+  var returnAmt =
+    (stats.totalInvestment * stats.interestRate * stats.timePeriod) / 100;
   // data for doughnut chart
   const data = {
     labels: ["Total Investment", "Total Returns"],
@@ -81,11 +81,11 @@ export default function FDCal() {
               unit="₹"
               rangeOutput={stats.totalInvestment}
               onChange={handleChange}
-              min="5000"
-              max="10000000"
-              step="30000"
+              min={5000}
+              max={10000000}
+              step={30000}
             />
-            
+
             <InputRangeRight
               label="Expected return rate (p.a.)"
               id="customRange2"
@@ -93,11 +93,11 @@ export default function FDCal() {
               unit="%"
               rangeOutput={stats.interestRate}
               onChange={handleChange}
-              min="1"
-              max="15"
-              step="0.5"
+              min={1}
+              max={15}
+              step={0.5}
             />
-            
+
             <InputRangeRight
               label="Time Period"
               id="customRange3"
@@ -105,14 +105,22 @@ export default function FDCal() {
               unit="Yr"
               rangeOutput={stats.timePeriod}
               onChange={handleChange}
-              min="1"
-              max="30"
-              step="1"
+              min={1}
+              max={30}
+              step={1}
             />
             <br />
-            <TableData title="Investment Amount" unit="₹" data={stats.totalInvestment} />
-            <TableData title="Est. Returns" unit="₹" data={returnAmt.toFixed(2)} />
-            <TableData title="Total Value" unit="₹" data={(returnAmt + stats.totalInvestment).toFixed(2)} />
+            <TableData
+              title="Investment Amount"
+              unit="₹"
+              data={stats.totalInvestment}
+            />
+            <TableData title="Est. Returns" unit="₹" data={returnAmt} />
+            <TableData
+              title="Total Value"
+              unit="₹"
+              data={Number(stats.totalInvestment)+returnAmt}
+            />
           </div>
 
           {/* for chart--> */}
@@ -126,4 +134,3 @@ export default function FDCal() {
     </div>
   );
 }
-

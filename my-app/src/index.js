@@ -7,6 +7,7 @@ import FDCal from './Non-Components/fd calculator';
 import DreamCal from './Non-Components/dream cal';
 import LearningSection from './Non-Components/learning section';
 import Tools from './Non-Components/toolsPage';
+import CryptoCal from './Non-Components/cryptoTax';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="fdCal" element={<FDCal />} />
           <Route path="sipCal" element={<SipCal />} />
           <Route path="DreamCal" element={<DreamCal />} />
+          <Route path="cryptoCal" element={<CryptoCal />} />
           <Route path='tools' element={<Tools />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           {/* <Redirect to="/" /> */}

@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/navbar.css";
+import { Link } from "react-router-dom";
 
 const logo_dhando_src =
   "https://blogger.googleusercontent.com/img/a/AVvXsEg9iUHEWHtteJQ12NiYWssXwX6TTRnyhuhuav9pLcHp_c4FVukCDlSjRHz7WOJy1kgJDfQvaKQainp7YdKYwotdKaSA3cqqI8cXu6_S-xa2-nQq6lp0qno4oZIZ3-9PvQ1p_T5xx2IiXxUXHxjEo1BGJPk2Mbi4H_700TpaT6-5C7NZ8TfWp_U-r6_w=s1600";
@@ -36,49 +37,50 @@ function NavBar() {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <Link class="nav-link" to="/tools">
                 Community
-              </a>
+              </Link>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+            <li class="nav-item">
+              <Link
+                class="nav-link"
+                to="/tools"
+                // id="navbarDropdown"
+                // role="button"
+                // data-bs-toggle="dropdown"
+                // aria-expanded="false"
               >
                 Tools
-                <i class="fa-solid fa-angle-down"></i>
-              </a>
+                {/* <i class="fa-solid fa-angle-down"></i> */}
+                
+              </Link>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/fdCal">
                     FD Calculator
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/sipCal">
                     SIP Calculator
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
+                  <Link class="dropdown-item" to="/DreamCal">
                     Dream Come True
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Loan EMI Calculator
-                  </a>
+                  <Link class="dropdown-item" to="/cryptoCal">
+                    Crypto Calculator
+                  </Link>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Screens
-              </a>
+              <Link class="nav-link" to="/">
+                Learning 
+              </Link>
             </li>
           </ul>
         </div>

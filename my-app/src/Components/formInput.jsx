@@ -31,6 +31,7 @@ export default function InputRangeLeft(props) {
           step={props.step}
           name={props.name}
           onChange={props.onChange}
+          value={props.rangeOutput}
         ></input>
       </div>
     </form>
@@ -58,6 +59,7 @@ export function InputRangeRight(props) {
           step={props.step}
           name={props.name}
           onChange={props.onChange}
+          value={props.rangeOutput}
         ></input>
       </div>
     </form>
