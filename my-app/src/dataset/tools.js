@@ -25,6 +25,7 @@ export const tools=[
         title:"Income Tax Calculator",
         subtitle:"Find your maturity amount easily !!",
         text:"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia",
+        linkto:"/incomeTax",
     },
     {
         id:5,
