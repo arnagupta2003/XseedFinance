@@ -145,3 +145,7 @@ input[type=tel]{
 .learningTagline{
   font-weight: 500;
 }
+.formQuestion{
+  font-size: 1rem;
+  font-weight: 600;
+}
