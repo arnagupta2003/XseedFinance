@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../css/sipCalculator.css";
 import NavBar from "../Components/navbar";
 import BlackStrip from "../Components/blackStrip";
@@ -37,22 +37,41 @@ export default function IncomeTaxCal(){
           };
         });
     }
-    
+
+
+    const [flag,setFlag]=useState(1);
+    const [pageNo,setPageNo]=useState(1);
+
+    useEffect(() => {
+        if(pageNo<=3){
+            document.getElementById("button").innerHTML="Next";
+        }else{
+            document.getElementById("button").innerHTML="Try Again";
+        }
+    });
+
     function handleSection(event){
-        console.log("Clicked")
-        const id=event?event.target.innerHTML:1;
-        console.log(id==3);
-        for(var i=1;i<=3;i++){
+        console.log("Clicked");
+        var pg=event.target.value;
+        if(flag){
+            setFlag(0);
+            pg=1;
+        }
+        if(pg>4){
+            pg=1;
+        }
+        setPageNo(pg);
+        console.log(pg+"click")
+        console.log(pageNo+"ad");
+        for(var i=1;i<=4;i++){
             var sec="section"+i;
-            // console.log(sec);
-            if(i==id){
-                // console.log(document.getElementById(sec));
+            if(i==pg){
                 document.getElementById(sec).style.visibility="visible";
             }else{
-                // console.log(document.getElementById(sec));
                 document.getElementById(sec).style.visibility="hidden";
             }
         }
+        // return setPageNo(pg);
     }
 
     return(
@@ -71,12 +90,14 @@ export default function IncomeTaxCal(){
                 {/* Pagination */}
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
-                        <li class="page-item page-link" onClick={handleSection}>1</li>
-                        <li class="page-item page-link" onClick={handleSection}>2</li>
-                        <li class="page-item page-link" onClick={handleSection}>3</li>
-                        <li class="page-item page-link" onClick={handleSection}>4</li>
+                        <li class="page-item page-link pagno" onClick={handleSection} value={1}>1</li>
+                        <li class="page-item page-link pagno" onClick={handleSection} value={2}>2</li>
+                        <li class="page-item page-link pagno" onClick={handleSection} value={3}>3</li>
+                        <li class="page-item page-link pagno" onClick={handleSection} value={4}>4</li>
                     </ul>
                 </nav>
+
+
                 {/* Section 1 */}
                 <div id="section1" style={{position:"absolute"}}>
                     <i>See how the latest budget impacts your tax calculation. Updated as per latest budget on 1 February, 2023.</i>
@@ -96,9 +117,10 @@ export default function IncomeTaxCal(){
                 
                 
                 {/* Section 2 */}
-                <div id="section2" style={{position:"absolute"}}>
+                <div id="section2" style={{position:"absolute"}} class="col-md-4">
                     {incomeDetails.map((data)=>(
                         <InputNumberLeft
+                        key={data.id}
                         label={data.label}
                         id={data.name}
                         name={data.name}
@@ -109,14 +131,14 @@ export default function IncomeTaxCal(){
                     />
                     ))}
                 </div>
-                {/* {console.log(incomeDetails[0].id)} */}
                 
 
                 {/* Section 3 */}
 
-                <div id="section3" >
+                <div id="section3" style={{position:"absolute"}} class="col-md-4">
                     {deductions.map((data)=>(
                         <InputNumberLeft
+                        key={data.id}
                         label={data.label}
                         id={data.name}
                         name={data.name}
@@ -127,7 +149,15 @@ export default function IncomeTaxCal(){
                     />
                     ))}
                 </div>
-                <br /><br /><br /><br />
+
+                {/* Section 4 */}
+
+                <div id="section4" class="col-md-6" >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro fuga dignissimos, obcaecati illum esse. Quasi obcaecati ducimus ea id accusamus nobis architecto iste. Soluta est natus ea ut perferendis necessitatibus magnam nihil maiores eius laborum iure vitae voluptate amet laboriosam explicabo in, perspiciatis aliquam tempora veniam, facilis aperiam eveniet! Numquam in, vel iure modi tenetur harum magni molestiae, non cum nam ad possimus optio inventore? Debitis doloribus blanditiis quos magnam sunt eum tempora suscipit, dicta maxime totam sed obcaecati perspiciatis, adipisci modi autem dolor quae! Dolore earum, reiciendis magnam numquam placeat minus maxime fugiat, dolorum inventore hic pariatur accusamus? Suscipit in voluptatibus repellendus optio. Assumenda error odit maiores numquam temporibus sequi nesciunt, illo facere fugiat obcaecati mollitia non at, vel adipisci et in voluptas quasi commodi? Ullam tenetur quae non temporibus veniam deserunt architecto libero soluta consequuntur, alias earum ducimus quod accusamus doloribus, autem fugit aliquam voluptate quo atque ratione quas. Enim, illo nihil. Alias at quo vero quis non officia eius qui commodi rem saepe minima reprehenderit eaque quas dicta molestiae laborum, voluptatem amet quidem ipsum sed quam. Voluptatum, unde neque? Eaque deserunt, neque, voluptatibus eligendi numquam saepe repellendus a nulla distinctio quae vel consequatur deleniti porro similique.
+                </div>
+                <br /><br />
+                <button type="button" class="btn btn-primary" id="button" onClick={handleSection} value={pageNo+1}>Next</button>
+                <br /><br />
                 
 
             </div>

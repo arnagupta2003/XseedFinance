@@ -157,3 +157,6 @@ input[type=tel]{
 .page-item{
   cursor: pointer;
 }
+.pagno{
+  color:black;
+}
