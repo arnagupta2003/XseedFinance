@@ -149,3 +149,11 @@ input[type=tel]{
   font-size: 1rem;
   font-weight: 600;
 }
+.formOption{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: grey;
+}
+.page-item{
+  cursor: pointer;
+}

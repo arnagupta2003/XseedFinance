@@ -7,6 +7,7 @@ import DreamCal from './Non-Components/dream cal';
 import LearningSection from './Non-Components/learning section';
 import Tools from './Non-Components/toolsPage';
 import CryptoCal from './Non-Components/cryptoTax';
+import IncomeTaxCal from './Non-Components/incomeTaxCal';
 export default function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ export default function App() {
           <Route path="DreamCal" element={<DreamCal />} />
           <Route path="cryptoCal" element={<CryptoCal />} />
           <Route path='tools' element={<Tools />} />
+          <Route path='incomeTax' element={<IncomeTaxCal />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           {/* <Redirect to="/" /> */}
       </Routes>

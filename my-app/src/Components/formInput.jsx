@@ -75,6 +75,7 @@ export function InputNumberLeft(props) {
             {props.label}
           </label>
         </h5>
+        
         <div class="row col-sm-4 align-items-center">
           {props.unit}
           <input
@@ -114,5 +115,17 @@ export function InputNumberRight(props) {
         </div>
       </div>
     </form>
+  );
+}
+
+
+export function InputRadio(props){
+  return (
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name={props.name} id={props.name} />
+        <label class="formOption form-check-label" for={props.name}>
+        {props.label}
+        </label>
+    </div>
   );
 }
