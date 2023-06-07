@@ -128,11 +128,11 @@ input[type=tel]{
   font-weight: 500;
   font-size: 1.2rem;
 }
-.dreambtn{
+.dreambtn,.btn{
   background-color: #91BCE5;
   border: 2px solid #252525;
 }
-.dreambtn:hover{
+.dreambtn:hover,.btn:hover{
   background-color: #252525;
   color:white;
   border: 2px solid #91BCE5;
@@ -160,3 +160,4 @@ input[type=tel]{
 .pagno{
   color:black;
 }
+
