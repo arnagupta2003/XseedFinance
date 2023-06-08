@@ -122,7 +122,7 @@ export function InputNumberRight(props) {
 export function InputRadio(props){
   return (
     <div class="form-check">
-        <input class="form-check-input" type="radio" name={props.name} id={props.name} />
+        <input onClick={props.onClick} class="form-check-input" type="radio" name={props.name} id={props.name} value={props.value}/>
         <label class="formOption form-check-label" for={props.name}>
         {props.label}
         </label>

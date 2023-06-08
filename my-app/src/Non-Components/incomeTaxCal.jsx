@@ -7,11 +7,12 @@ import { incomeDetails } from "../dataset/incomeSection2";
 import { deductions } from "../dataset/incomeSection3";
 import Footer from "../Components/footer";
 import Info1, { Info2 } from "./incomeTaxInfo";
+import { TableData3 } from "../Components/tableData";
 
 export default function IncomeTaxCal() {
   const [stats, setStats] = useState({
-    // financialYear:1,
-    // ageGroup:1,
+    financialYear:"",
+    ageGroup:"",
     incomeSalary: 0,
     exemptAllowance: 0,
     interestIncome: 0,
@@ -28,11 +29,86 @@ export default function IncomeTaxCal() {
     deduc80EEA: 0,
     deduc80CCD: 0,
   });
-  const totalIncome=stats.incomeSalary + stats.interestIncome + stats.interestHomeLoanSelfOccupied + stats.incomeRental + stats.interestHomeLoanLetOut + stats.incomeDigitalAssets + stats.incomeOthers;
-  const VIAdeductions=stats.deduc80C + stats.deduc80TTB + stats.deduc80D + stats.deduc80G + stats.deduc80E + stats.deduc80EEA + stats.deduc80CCD;
-  const standardDeduction=50000;
-  const exempt=stats.exemptAllowance;
-  const taxableIncomeOld=0;
+  var headingOld="Post-Budget (Old Regime)\n"+stats.financialYear
+  var headingNew="Post-Budget (New Regime)\n"+stats.financialYear
+  const totalIncome=Number(stats.incomeSalary) + Number(stats.interestIncome) + Number(stats.interestHomeLoanSelfOccupied) + Number(stats.incomeRental)+ Number(stats.interestHomeLoanLetOut) + Number(stats.incomeDigitalAssets )+ Number(stats.incomeOthers);
+  const VIAdeductions=Number(stats.deduc80C) + Number(stats.deduc80TTB )+ Number(stats.deduc80D) + Number(stats.deduc80G) + Number(stats.deduc80E) + Number(stats.deduc80EEA) + Number(stats.deduc80CCD);
+  var exempt=Number(stats.exemptAllowance);
+  if(exempt>totalIncome){
+    exempt=totalIncome;
+  }
+  var standardDeduction=50000;
+  if(totalIncome<50000){
+    standardDeduction=totalIncome-exempt;
+  }
+  const totalDeductionsOld=exempt + standardDeduction + VIAdeductions;
+  const totalDeductionsNew=standardDeduction;
+  const taxableIncomeOld=totalIncome-totalDeductionsOld;
+  const taxableIncomeNew=totalIncome-totalDeductionsNew;
+  var incometaxOld=0;
+  var incomeTaxNew=0;
+  var taxable=0;
+  var base=0;
+
+  if(taxableIncomeNew>700000){
+    if(taxableIncomeNew>1500000){
+      taxable=taxableIncomeNew-1500000;
+      incomeTaxNew=150000+taxable*0.3;
+    }else if(taxableIncomeNew>1200000){
+      taxable=taxableIncomeNew-1200000;
+      incomeTaxNew=90000+taxable*0.2;
+    }
+    else if(taxableIncomeNew>900000){
+      taxable=taxableIncomeNew-900000;
+      incomeTaxNew=45000+taxable*0.15;
+    }
+    else if(taxableIncomeNew>600000){
+      taxable=taxableIncomeNew-600000;
+      if(taxableIncomeNew-700000<15000 && taxableIncomeNew-700000>0){
+        incomeTaxNew=taxableIncomeNew-700000;
+        // console.log(incomeTaxNew);
+      }
+      else if(taxable*0.1< 15000){
+        incomeTaxNew=taxable*0.1;
+      }else{
+        incomeTaxNew=15000+taxable*0.1;
+      }
+      
+    }
+  }
+  if(taxableIncomeOld>500000){
+    if(taxableIncomeOld>1000000){
+      taxable=taxableIncomeOld-1000000;
+      if(stats.ageGroup=="0060"){
+        base=112500;
+      }else if(stats.ageGroup=="6080"){
+        base=110000;
+      }else{
+        base=100000;
+      }
+      incometaxOld=base+taxable*0.3;
+    }
+    else if(taxableIncomeOld>500000){
+      taxable=taxableIncomeOld-500000;
+      if(stats.ageGroup=="0060"){
+        base=12500;
+      }else if(stats.ageGroup=="6080"){
+        base=10000;
+      }else{
+        base=0;
+      }
+      if(taxable*0.1< base){
+        incometaxOld=taxable*0.2;
+      }else{
+        incometaxOld=base+taxable*0.2;
+      }
+    }
+  }
+  const eduTaxOld=(0.04*incometaxOld).toFixed(2);
+  const eduTaxNew=(0.04*incomeTaxNew).toFixed(2);
+  const totalIncomeTaxOld=incometaxOld+Number(eduTaxOld);
+  const totalIncomeTaxNew=incomeTaxNew+Number(eduTaxNew);
+
   function handleInput(event) {
     const { name, value } = event.target;
     return setStats((prevValue) => {
@@ -77,7 +153,31 @@ export default function IncomeTaxCal() {
         document.getElementById(sec).style.visibility = "hidden";
       }
     }
+    document.getElementById("deductions").style.visibility="hidden";
+    document.getElementById("deductions").style.position="absolute";
+    document.getElementById("incomeTax").style.visibility="hidden";
+      document.getElementById("incomeTax").style.position="absolute";
     return setPageNo(pg);
+  }
+  function handleDeduction(){
+    var curr=document.getElementById("deductions").style.visibility;
+    if(curr=="hidden"){
+      document.getElementById("deductions").style.visibility="visible";
+      document.getElementById("deductions").style.position="relative";
+    }else{
+      document.getElementById("deductions").style.visibility="hidden";
+      document.getElementById("deductions").style.position="absolute";
+    }
+  }
+  function handleIncomeTax(){
+    var curr=document.getElementById("incomeTax").style.visibility;
+    if(curr=="hidden"){
+      document.getElementById("incomeTax").style.visibility="visible";
+      document.getElementById("incomeTax").style.position="relative";
+    }else{
+      document.getElementById("incomeTax").style.visibility="hidden";
+      document.getElementById("incomeTax").style.position="absolute";
+    }
   }
 
   return (
@@ -140,17 +240,21 @@ export default function IncomeTaxCal() {
           <InputRadio
             name="financialYear"
             label="FY 2023-2024 Latest Budget (Return to be filed between 1st April 2024 - 31st March 2025)"
+            value="(FY 2023-2024)"
+            onClick={handleInput}
           />
           <InputRadio
             name="financialYear"
             label="FY 2022-2023 (Return to be filed between 1st April 2023 - 31st March 2024)"
+            value="(FY 2022-2023)"
+            onClick={handleInput}
           />
 
           <br />
           <div className="formQuestion">Your age</div>
-          <InputRadio name="ageGroup" label="0 to 60" />
-          <InputRadio name="ageGroup" label="60 to 80" />
-          <InputRadio name="ageGroup" label="80 & above" />
+          <InputRadio name="ageGroup" label="0 to 60" value="0060" onClick={handleInput}/>
+          <InputRadio name="ageGroup" label="60 to 80" value="6080" onClick={handleInput}/>
+          <InputRadio name="ageGroup" label="80 & above" value="8000" onClick={handleInput}/>
         </div>
 
         {/* Section 2 */}
@@ -185,15 +289,42 @@ export default function IncomeTaxCal() {
             />
           ))}
         </div>
-
+            
         {/* Section 4 */}
-
-        <div id="section4" class="col-md-6">
+        <div id="section4" class="col-sm-8">
+          {totalIncomeTaxOld - totalIncomeTaxNew>0?
+          <div className="taxResult">XSeed Finance suggests you to opt for New Tax Regime as it save you tax of worth<br /> <b>Rs. {totalIncomeTaxOld - totalIncomeTaxNew}</b> over the Old Regime</div>
+          :
+          <div className="taxResult">XSeed Finance suggests you to opt for Old Tax Regime as it save you tax of worth<br /> <b>Rs. {stats.totalIncomeTaxNew - totalIncomeTaxOld}</b> over the New Regime</div>
           
+        }
+          <TableData3 col2={headingOld} col3={headingNew} bgColor="#91BCE5" fontWt2="600" fontWt3="600"/>
+          <TableData3 col1="Total Income" col2={totalIncome} col3={totalIncome} bgColor="#add2f7" fontWt1="600"/>
+
+          <div onClick={handleDeduction}>
+          <TableData3 col1="Total Deductions" col2={totalDeductionsOld} col3={totalDeductionsNew} bgColor="#add2f7" fontWt1="600" fontWt2="600" fontWt3="600" icon={<i class="fa-sharp fa-solid fa-caret-down"></i>} cursor="pointer"/>
+          </div>
+          <div id="deductions">
+          <TableData3  col1="Exempt Allowances" col2={stats.exemptAllowance} col3={0} bgColor="#91BCE5" />
+          <TableData3  col1="Standard Deductions" col2={standardDeduction} col3={standardDeduction} bgColor="#add2f7" />
+          <TableData3  col1="Chapter VI A Deductions" col2={VIAdeductions} col3={0} bgColor="#91BCE5" />
+          </div>
+
+          <TableData3 col1="Taxable Income" col2={taxableIncomeOld} col3={taxableIncomeNew} bgColor="#91BCE5" fontWt1="600" fontWt2="600" fontWt3="600"/>
+          <div onClick={handleIncomeTax}>
+          <TableData3 col1="Total Income Tax" col2={totalIncomeTaxOld} col3={totalIncomeTaxNew} bgColor="#54a2f0" fontWt1="600" fontWt2="600" fontWt3="600" icon={<i class="fa-sharp fa-solid fa-caret-down"></i>} cursor="pointer"/>
+          </div>
+          <div id="incomeTax">
+          <TableData3 col1="Income Tax" col2={incometaxOld} col3={incomeTaxNew} bgColor="#add2f7" />
+          <TableData3 col1="Education & Cess Tax" col2={eduTaxOld} col3={eduTaxNew} bgColor="#91BCE5" />
+          </div>
+
+          <BlackStrip bgcolor="#F7F7F7"  height="10rem" /> 
+
         </div>
         <br />
         <br />
-        <button type="button" class="btn" id="button" onClick={handleSection}>
+        <button type="button" class="btn sectionbtn" id="button" onClick={handleSection}>
           Next
         </button>
         <br />
