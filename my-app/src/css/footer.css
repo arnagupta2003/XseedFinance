@@ -1,6 +1,7 @@
 .footer{
     margin-top: auto !important;
     width: 100% !important;
+    margin-bottom: 0 !important;
 }
 #footerContainer{
     background-color: #0F1012;

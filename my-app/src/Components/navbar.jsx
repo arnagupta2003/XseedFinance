@@ -75,6 +75,16 @@ function NavBar() {
                     Crypto Calculator
                   </Link>
                 </li>
+                <li>
+                  <Link class="dropdown-item" to="/incomeTax">
+                    Income Tax Calculator
+                  </Link>
+                </li>
+                <li>
+                  <Link class="dropdown-item" to="/equityTax">
+                    Equity Tax Calculator
+                  </Link>
+                </li>
               </ul>
             </li>
             <li class="nav-item">

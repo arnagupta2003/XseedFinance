@@ -32,6 +32,7 @@ export const tools=[
         title:"Equity Tax Calculator",
         subtitle:"Find your maturity amount easily !!",
         text:"There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        linkto:"/equityTax"
     },
     {
         id:6,

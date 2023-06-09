@@ -8,6 +8,7 @@ import LearningSection from './Non-Components/learning section';
 import Tools from './Non-Components/toolsPage';
 import CryptoCal from './Non-Components/cryptoTax';
 import IncomeTaxCal from './Non-Components/incomeTaxCal';
+import EquityTaxCal from './Non-Components/equityTaxCal';
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="cryptoCal" element={<CryptoCal />} />
           <Route path='tools' element={<Tools />} />
           <Route path='incomeTax' element={<IncomeTaxCal />} />
+          <Route path='equityTax' element={<EquityTaxCal />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           {/* <Redirect to="/" /> */}
       </Routes>
