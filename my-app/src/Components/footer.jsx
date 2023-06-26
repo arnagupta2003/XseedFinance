@@ -2,15 +2,6 @@ import React from "react";
 import BlackStrip from "./blackStrip";
 import '../css/footer.css'
 
-const customStyle = {
-  display: "inline-block !important",
-  fontSize: "inherit!important",
-  color: "#ff00ba!important",
-  visibility: "visible!important",
-  zIndex: "99!important",
-  opacity: "1!important",
-  position: "relative!important",
-};
 function Footer() {
   return (
     <div class="col-sm-12 align-items-center">
@@ -36,7 +27,7 @@ function Footer() {
         <div class="col-sm-12 col-md-3 footerItem align-items-center">
           <h5 class="footerItemHeading">Featured Post</h5>
           <a href="https://www.dhando.in/2022/09/l-future-of-crypto-currency-orem-ipsum.html">
-          <img src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDTh-0uVL8Y3bNN4g0mpomD8EyPnZD0r91j9TJBP7fZv1aeBUhk0G6pntOurVq4MAQvC0C98SbvslRUpQp8PmA0Fh-VQjiJ1h1DOXHLfP98PXACsaJdzi-E5IpWQxSRofuQblVJRZfUTc648h0Ni-kOLRQS_wTWc5HNyTy3AV8u2FRdFduj8Ly1Beoa3Jbs=w373-h187-p-k-no-nu"/>
+          <img alt="footerImg" src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDSuBLi12122sLRN_acFr31uEhPsFlTKk4ku38O_yQqAiY45sHB2fR5ZkYO2pjm-i2EcnCpSfLbjjxh1ePOHXW8kKG6zuFo-46b8gO6eZGMlP7kST_q8c2JAq0aTAJ-ZwrI0B369RdMxeUi--Zm-tN4WEjcri9wVabH4Jf7-Ba5g6murLOeaSDOUb6fDhUI=w373-h187-p-k-no-nu"/>
           </a>
           <div class="row justify-content-between">
             <a class="col" href="https://www.blogger.com/profile/14203513000927050438">
@@ -56,7 +47,7 @@ function Footer() {
               <div class="row justify-content-between">
                 <div class="col">
                   <a href="https://www.dhando.in/search/label/crypto?&max-results=5">
-                    <img id="popularPostImg" src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDTh-0uVL8Y3bNN4g0mpomD8EyPnZD0r91j9TJBP7fZv1aeBUhk0G6pntOurVq4MAQvC0C98SbvslRUpQp8PmA0Fh-VQjiJ1h1DOXHLfP98PXACsaJdzi-E5IpWQxSRofuQblVJRZfUTc648h0Ni-kOLRQS_wTWc5HNyTy3AV8u2FRdFduj8Ly1Beoa3Jbs=w373-h187-p-k-no-nu"/>
+                    <img alt="footerImg" id="popularPostImg" src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDSuBLi12122sLRN_acFr31uEhPsFlTKk4ku38O_yQqAiY45sHB2fR5ZkYO2pjm-i2EcnCpSfLbjjxh1ePOHXW8kKG6zuFo-46b8gO6eZGMlP7kST_q8c2JAq0aTAJ-ZwrI0B369RdMxeUi--Zm-tN4WEjcri9wVabH4Jf7-Ba5g6murLOeaSDOUb6fDhUI=w83-h66-p-k-no-nu"/>
                   </a>
                 </div>
               
@@ -71,7 +62,7 @@ function Footer() {
             <div class="row justify-content-between">
                 <div class="col">
                   <a href="https://www.dhando.in/2022/09/lorem-ipsum-dolor-sit-lorem-ipsum-dolor.html">
-                    <img id="popularPostImg" src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDS8-Dm8EhQIokhrJbb8CfB-vVp0GXum5BhrZ3p-vFZ7B9G38V2rsqEMO4fQ7qfS-iurTdXWwN7B8hZOWUYcFckqZ-_1037ZDtHpwUyXM0IQICJewQUeO19uOpyGVzC9CRsE4CDUc8odI6CUI9lvGLlN9YL2Ch9EkyWNZZp-9b8IL4uWdWO8XXHKdMLkQseZLppqGBsxOEHWtAJ8dZKi3jUkj5KO94u8SuoeVN0UxuiLU1zwjZF9McWY9-yl8c8gwYYtm05SU0DpWL0h2IjISrzw74A5UZxkVN3QsWrm979QHIjCRnohBhGMPn2CS9P84TM=w83-h66-p-k-no-nu"/>
+                    <img alt="footerImg" id="popularPostImg" src="https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDQbRO3_aENejuPSxa2k-J86pgMiH7KdCitCbLd5hEfSFRcXmFr0XLS7ASkA-HFgtWQZyWCuy4KDgehVEWjlME_T5z1MSauwLWCETYoj36ZFlkVsWjPFOs2456yboqFJecQ_EkOY2YGa0iA89hlt4jIv-dG_KLzZtzaLLJyDww-MJR4vFFa9XtpWj6ih6pKZSn2b2-dKX7Le35diNUQXEQXHwK5CZaj9WwzDwATjkmWUF6j55FCSLU-rLT-ZprUt5YCaOkKzHIr4IuWGzp-0ud-gVVFFsmSVCYDCCiNhzFYyvOr20aTVdtiiDbTy92WXqyo=w83-h66-p-k-no-nu"/>
                   </a>
                 </div>
               
