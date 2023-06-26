@@ -78,7 +78,7 @@ export default function CryptoCal() {
           <h6 class="calTagline">Crypto is the new currency</h6>
         </div>
         <div class="row stats">
-          <div class="col-sm-12 col-md-5 align-self-center">
+          <div class="col-sm-12 col-md-7 align-self-center">
             <InputNumberLeft
               label="Enter sale price of Crypto Assets"
               id="customRange4"
@@ -105,7 +105,7 @@ export default function CryptoCal() {
           </div>
 
           {/* for chart--> */}
-          <div class="col-sm-12 col-md-6" id="pie">
+          <div class="col-sm-12 col-md-4" id="pie">
             <DoughnutChart data={data} options={options} />
           </div>
         </div>

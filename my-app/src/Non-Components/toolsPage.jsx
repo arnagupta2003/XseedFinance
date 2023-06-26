@@ -40,7 +40,7 @@ export default function Tools() {
           <u>
             <h2 class="infoHeading">Tools</h2>
           </u>
-          <div class="row">
+          <div class="row justify-content-center">
             {tools.map((mod) => (
               <Card
                 key={mod.id}

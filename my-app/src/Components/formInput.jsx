@@ -17,10 +17,22 @@ export default function InputRangeLeft(props) {
           <label for={props.id} class="form-label">
             {props.label}
           </label>
-          <span style={barStyle}>
-            {props.unit}
-            <span id={props.id}>{props.rangeOutput}</span>
-          </span>
+          <div style={barStyle} className="row col-sm-4">
+            <div class="col-sm-2">{props.unit}</div>
+            <div className="col-sm-10">
+            <input 
+            type="number" 
+            class="form-range inputNumber"
+            id={props.id}
+            min={props.min}
+            name={props.name}
+            onChange={props.onChange}
+            value={props.rangeOutput}
+            ></input>
+            </div>
+            
+            {/* <span id={props.id}>{props.rangeOutput}</span> */}
+          </div>
         </h5>
         <input
           type="range"
@@ -45,10 +57,27 @@ export function InputRangeRight(props) {
           <label for={props.id} class="form-label">
             {props.label}
           </label>
-          <span style={barStyle}>
+          <div style={barStyle} className="row col-sm-4">
+            
+            <div className="col-sm-6">
+            <input 
+            type="number" 
+            class="form-range inputNumber"
+            id={props.id}
+            min={props.min}
+            name={props.name}
+            onChange={props.onChange}
+            value={props.rangeOutput}
+            ></input>
+            </div>
+            <div class="col-sm-3">{props.unit}</div>
+            {/* <span id={props.id}>{props.rangeOutput}</span> */}
+          </div>
+
+          {/* <span style={barStyle}>
             <span id={props.id}>{props.rangeOutput}</span>
             {props.unit}
-          </span>
+          </span> */}
         </h5>
         <input
           type="range"
@@ -75,19 +104,22 @@ export function InputNumberLeft(props) {
             {props.label}
           </label>
         </h5>
-        
-        <div class="row col-sm-4 align-items-center">
-          {props.unit}
-          <input
-            type="tel"
-            class="form-range"
+        <div style={barStyle} className="row col-sm-4">
+        <div class="col-sm-3">{props.unit}</div>
+            <div className="col-sm-6">
+            <input 
+            type="number" 
+            class="form-range inputNumber"
             id={props.id}
             min={props.min}
             name={props.name}
             onInput={props.onInput}
             value={props.value}
-          ></input>
-        </div>
+            ></input>
+            </div>
+            
+            {/* <span id={props.id}>{props.rangeOutput}</span> */}
+          </div>
       </div>
     </form>
   );
@@ -101,18 +133,22 @@ export function InputNumberRight(props) {
             {props.label}
           </label>
         </h5>
-        <div class="row col-sm-4 align-items-center">
-          <input
-            type="tel"
-            class="form-range"
+        <div style={barStyle} className="row col-sm-4">
+        
+            <div className="col-sm-6">
+            <input 
+            type="number" 
+            class="form-range inputNumber"
             id={props.id}
             min={props.min}
             name={props.name}
             onInput={props.onInput}
             value={props.value}
-          ></input>
-          <span class="col-sm-1"><b>{props.unit}</b></span>
-        </div>
+            ></input>
+            </div>
+            <div class="col-sm-3">{props.unit}</div>
+            {/* <span id={props.id}>{props.rangeOutput}</span> */}
+          </div>
       </div>
     </form>
   );
