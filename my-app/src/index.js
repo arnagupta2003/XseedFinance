@@ -14,13 +14,13 @@ export default function App() {
     <BrowserRouter>
       <Routes>
           <Route path="/" element={<LearningSection />} />
-          <Route path="fdCal" element={<FDCal />} />
-          <Route path="sipCal" element={<SipCal />} />
-          <Route path="DreamCal" element={<DreamCal />} />
-          <Route path="cryptoCal" element={<CryptoCal />} />
-          <Route path='tools' element={<Tools />} />
-          <Route path='incomeTax' element={<IncomeTaxCal />} />
-          <Route path='equityTax' element={<EquityTaxCal />} />
+          <Route path="/fdCal" element={<FDCal />} />
+          <Route path="/sipCal" element={<SipCal />} />
+          <Route path="/DreamCal" element={<DreamCal />} />
+          <Route path="/cryptoCal" element={<CryptoCal />} />
+          <Route path='/tools' element={<Tools />} />
+          <Route path='/incomeTax' element={<IncomeTaxCal />} />
+          <Route path='/equityTax' element={<EquityTaxCal />} />
           {/* <Route path="*" element={<NoPage />} /> */}
           {/* <Redirect to="/" /> */}
       </Routes>
