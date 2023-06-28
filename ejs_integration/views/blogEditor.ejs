@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon.png"
+    />
+    <title><%= title %></title>
+
+    <!-- Custom CSS -->
+
+    <link href="/Extra Css/app-chat.css" rel="stylesheet" />
+    <link href="/dist/css/style.min.css" rel="stylesheet" />
+    <link href="/Extra Css/news.css" rel="stylesheet" />
+
+    <link href="/Extra Css/blogEditor.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="/ckonlinebuild/build/ckeditor.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+</html>
+
+<body>
+  <!-- ============================================================== -->
+  <!-- Preloader - style you can find in spinners.css -->
+  <!-- ============================================================== -->
+  <div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div
+    id="main-wrapper"
+    data-theme="light"
+    data-layout="vertical"
+    data-navbarbg="skin6"
+    data-sidebartype="full"
+    data-sidebar-position="fixed"
+    data-header-position="fixed"
+    data-boxed-layout="full"
+  >
+    <%- include("components/topbar") -%> <%- include("components/sidebar") -%>
+
+    <div class="page-wrapper">
+      <div class="container-fluid mt-3">
+        <h2 class="ckheader">Create new blog post</h2>
+        <form action="/blogEditor" method="post" enctype="multipart/form-data">
+          <label for="header">Header</label>
+          <input
+            id="header"
+            name="header"
+            type="text"
+            placeholder="Enter you header here"
+          />
+
+          <input type="file" id="image" name="image" />
+
+          <textarea name="content" id="editor">
+            &lt;p&gt;This is some sample content.&lt;/p&gt;
+          </textarea>
+          <button type="submit" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/extra js/blogEditor.js"></script>
+  <script></script>
+
+  <%- include("layouts/footer") -%>
+</body>
